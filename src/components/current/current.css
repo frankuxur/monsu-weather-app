@@ -1,0 +1,112 @@
+/* grid 1 */
+.current {
+    padding: var(--m);
+    width: 22rem;
+    height: 15.625rem;
+    background: rgba( 255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: var(--xl);
+    border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
+    font-size: var(--font-m);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--xl);
+}
+
+.current__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--xl);
+}
+
+.current__place {
+    display: flex;
+    flex-direction: column;
+    gap: var(--xxxs);
+}
+
+.current__day {
+    display: flex;
+    align-items: center;
+    gap: var(--xxs);
+    opacity: 0.6;
+    font-size: var(--font-s);
+}
+
+.current__day .dot {
+    width: 0.28rem;
+    aspect-ratio: 1;
+    background-color: var(--color);
+    opacity: 0.7;
+    border-radius: 50%;
+}
+
+.current__title {
+    font-size: var(--l);
+    font-weight: var(--semi-bold);
+    opacity: 0.9;
+}
+
+.current__climate {
+    text-align: center;
+}
+
+.current__climate .icon {
+    font-size: var(--font-4xl);
+    opacity: 0.9;
+}
+
+.current__climate-type {
+    font-size: var(--font-s);
+    opacity: 0.6;
+}
+
+.current__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--xl);
+}
+
+.current__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--xl) var(--m);
+}
+
+.current__stats > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+}
+
+.current__stats .icon,
+.current__stats span {
+    font-weight: var(--semi-bold);
+}
+  
+.current__label {
+    opacity: 0.6;
+    font-size: var(--font-s);
+    flex: 100%;
+}
+
+.current__stats .icon {
+    margin-right: var(--xxxs);
+}
+
+.current__temp {
+    font-size: var(--font-3xl);
+    font-weight: var(--semi-bold);
+    opacity: 0.9;
+    line-height: 1;
+    display: flex;
+}
+
+.current__temp span {
+    font-size: var(--font-m);
+}

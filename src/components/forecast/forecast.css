@@ -1,0 +1,105 @@
+.forecast {
+    padding: var(--m);
+    flex: 3;
+    /* height: 15.625rem; */
+    background: rgba( 255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: var(--xl);
+    border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
+    font-size: var(--font-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--xl);
+}
+
+.forecast {
+    /* padding: var(--xxs); */
+}
+
+.forecast__header {
+    position: relative;
+    /* margin-bottom: var(--l); */
+}
+
+.forecast__title {
+    font-size: var(--font-s);
+    font-weight: var(--bold);
+    opacity: 0.4;
+}
+
+.forecast__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forecast__chart {
+    width: 95%;
+    height: 8.7rem;
+    /* margin-inline: auto; */
+}
+
+.forecast__info,
+.forecast__days {
+    width: 98%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast__info-box,
+.forecast__day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forecast__info-box {
+    font-family: var(--grotesk);
+}
+
+.forecast__info-box > .icon {
+    font-size: var(--l);
+    font-weight: var(--light);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.6rem;
+    background: rgba( 255, 255, 255, 0.25);
+    box-shadow: 0 4px 16px 0 rgba(93, 94, 99, 0.137);
+    backdrop-filter: blur(4px);
+    border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.1rem;
+}
+
+.forecast__temp-high {
+    font-size: var(--font-s);
+    font-weight: var(--regular);
+}
+
+.forecast__temp-low {
+    font-size: var(--font-xs);
+    font-weight: var(--semi-bold);
+    opacity: 0.4;
+    display: flex;
+    align-items: flex-end;
+}
+
+.forecast__days {
+    width: 97%;
+}
+
+.forecast__dayName {
+    font-size: var(--font-s);
+    font-weight: var(--bolder);
+    opacity: 0.8;
+}
+
+.forecast__date {
+    font-size: var(--font-xs);
+    font-weight: var(--bolder);
+    opacity: 0.3;
+}

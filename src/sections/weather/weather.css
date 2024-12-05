@@ -1,0 +1,9 @@
+.weather {
+    width: 100%;
+}
+
+.weather__content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--m);
+}

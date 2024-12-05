@@ -1,0 +1,29 @@
+.searchbar {
+    position: relative;
+}
+
+.searchbar__input {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    backdrop-filter: blur(4px);
+    /* border-radius: var(--l); */
+    border-radius: 0.6rem;
+    border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
+    padding: var(--s);
+    padding-right: var(--xxxl);
+    /* border: 1px dashed coral; */
+}
+
+.searchbar__button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding-inline: var(--s);
+    transition: 0.3s;
+    /* border: 1px dashed coral; */
+}
+
+.searchbar__button:hover {
+    opacity: 0.6;
+}
