@@ -9,11 +9,11 @@
 
 .current > * {
     padding: var(--m);
-    background: rgba( 255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
     backdrop-filter: blur(4px);
     border-radius: var(--xl);
-    border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
+    border: 0.01rem solid rgba(255, 255, 255, 0.18);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,6 +22,7 @@
 .current__main,
 .current__time {
     flex: 40%;
+    min-width: 10.625rem;
 }
 
 .current__main {
@@ -86,6 +87,7 @@
 }
 
 .current__week {
+    padding-top: var(--s);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

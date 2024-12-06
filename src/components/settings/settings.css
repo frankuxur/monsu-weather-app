@@ -1,0 +1,125 @@
+.settings {
+    position: fixed;
+    bottom: 4%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    backdrop-filter: blur(4px);
+    border: 0.01rem solid rgba(218, 166, 166, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    border-radius: var(--m);
+    font-size: var(--font-s);
+    padding: var(--xxs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s);
+    transition: 0.3s 0.1s ease-out;
+    font-family: var(--manrope);
+    z-index: 1;
+}
+
+.settings__open {
+    font-size: var(--font-xl);
+    position: fixed;
+    bottom: 4%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    backdrop-filter: blur(4px);
+    width: 2rem;
+    aspect-ratio: 1;
+    border-radius: var(--xs);
+    border: 0.01rem solid rgba(218, 166, 166, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s 0.1s ease-out, filter 0.2s ease-out;
+}
+
+.settings.active,
+.settings__open.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, 0);
+}
+
+.settings__open.active {
+    opacity: 0.8;
+}
+
+.settings__open:hover {
+    filter: brightness(1.8);
+}
+
+.settings__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.settings__close {
+    display: flex;
+    font-size: var(--font-xs);
+    transition: 0.3s;
+}
+
+.settings__close:hover {
+    opacity: 0.4;
+}
+
+.settings__title {
+    opacity: 0.6;
+}
+
+.settings__options {
+    display: flex;
+    gap: var(--xl);
+}
+
+.themes,
+.units {
+    display: flex;
+    align-items: center;
+    gap: var(--xxxs);
+}
+
+.settings .line {
+    width: 1rem;
+    height: 0.01rem;
+    border-top: 0.01rem dashed var(--color);
+    opacity: 0.4;
+}
+
+.settings__button {
+    width: 1.8rem;
+    aspect-ratio: 1;
+    border-radius: var(--xs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--bg-1);
+    background-color: var(--color);
+    border: 0.1rem solid rgba(255, 255, 255, 0.18 );
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    position: relative;
+}
+
+.settings__button .dot {
+    position: absolute;
+    bottom: -14%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    width: 0.3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: coral;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.settings__button:hover .dot,
+.settings__button.active .dot {
+    opacity: 1;
+}

@@ -1,17 +1,9 @@
 export const initialState = {
-    // place: '',
-    // main: {},
-    // timezone: null,
-    // visibility: null,
-    // weather: {},
-    // wind: {},
-    // aqi: null,
-    // time: '',
-    // uvIndex: null,
     current: {},
     forecast: {},
     loading: false,
     notFound: false,
+    unit: 'celsius',
 }
 
 const appReducer = (state, action) => {
@@ -49,6 +41,11 @@ const appReducer = (state, action) => {
             return {
                 ...state,
                 notFound: payload
+            }
+        case 'SET_UNIT':
+            return {
+                ...state,
+                unit: payload
             }
         default:
             break;

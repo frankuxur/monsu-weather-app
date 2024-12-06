@@ -1,6 +1,7 @@
 import wave from '../../assets/svgs/wave.svg'
+import './art.css'
 
-const MainArt = ({ isHover, setIsHover, setShowSearch }) => {
+const Art = ({ isHover, setIsHover, setShowSearch }) => {
   return ( 
     <div className={`main__art ${isHover ? `active` : ``}`}>
         <div className="main__art-wave">
@@ -38,4 +39,4 @@ const MainArt = ({ isHover, setIsHover, setShowSearch }) => {
   )
 }
 
-export default MainArt
+export default Art

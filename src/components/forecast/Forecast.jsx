@@ -13,6 +13,7 @@ import {
 import { useContext } from 'react'
 import { AppContext } from '../../state/context/AppContext'
 import icons from '../../assets/json/icons.json'
+import celsiusToFahrenheit from '../../utils/switchUnit'
 
 ChartJS.register (
     CategoryScale,
@@ -25,7 +26,7 @@ ChartJS.register (
 )
 
 const Forecast = () => {
-  const { weather: { forecast } } = useContext(AppContext)
+  const { weather: { forecast }, unit } = useContext(AppContext)
   const { temperature_2m_max, temperature_2m_min, time, weather_code } = forecast
   const temps = temperature_2m_max.filter((_, i) => i !== 0)
 
@@ -87,7 +88,7 @@ const Forecast = () => {
           display: false
         },      
       },
-    },  
+    },
     events: [],
   }
 
@@ -102,8 +103,9 @@ const Forecast = () => {
             {temps.map((temp, index) => (
               <div key={index} className="forecast__info-box">
                 <i className={`${icons[weather_code[index+1]].icon} icon`}></i>
-                <span className="forecast__temp-high">{temp}°</span>
-                <span className="forecast__temp-low">{temperature_2m_min[index+1]}° <i className="ri-arrow-down-line icon"></i></span>
+                <span className="forecast__temp-high">{unit === 'celsius' ? temp : celsiusToFahrenheit(temp)}°</span>
+                <span className="forecast__temp-low">
+                {unit === 'celsius' ? temperature_2m_min[index+1] : celsiusToFahrenheit(temperature_2m_min[index+1])}° <i className="ri-arrow-down-line icon"></i></span>
               </div>
             ))}
         </div>

@@ -1,18 +1,19 @@
 .app {
     width: 100%;
     min-height: 100svh;
-    /* border: 2px dashed coral; */
     display: flex;
     justify-content: center;
+    /* border: 1px dashed coral; */
 }
 
 .app__content {
     min-height: 100%;
     width: var(--content-width);
-    /* border: 2px dashed coral; */
-
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     gap: var(--xxxxl);
+    /* border: 1px dashed coral; */
 }

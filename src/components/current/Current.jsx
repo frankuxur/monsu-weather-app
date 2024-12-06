@@ -4,12 +4,13 @@ import './current-bar.css'
 import { AppContext } from '../../state/context/AppContext'
 import parseDateTime from '../../helpers/parseDateTime'
 import icons from '../../assets/json/icons.json'
+import celsiusToFahrenheit from '../../utils/switchUnit'
 
 const Current = () => {
-
+  
   const [humidityPercentage, setHumidityPercentage] = useState(10)
   const data = useContext(AppContext)
-  const { weather: { current } } = data
+  const { weather: { current }, unit } = data
   const { place, main: { temp, pressure, humidity }, timezone, visibility, weather: [ { description, icon } ], wind: { speed }, aqi, time: { time }, uvIndex } = current || {}
 
   const { month, day, time: t, meridian, dayIndex } = parseDateTime(time)
@@ -38,68 +39,13 @@ const Current = () => {
   const weatherIcon = icons[icon]
   
   useEffect(() => {
-    // setHumidityPercentage(10)
     setTimeout(() => {
       setHumidityPercentage(humidity)
     }, 500);
-  }, [data])
-
-  
-  
+  }, [data])  
 
   return (
     <div className="current">
-      {/* grid 1 */}
-      {/* <>
-        <header className="current__header">
-          <div className="current__place">
-            <h4 className="current__title">Los Angeles</h4>
-
-            <div className="current__day">
-              <div className="current__date">30 June</div>
-              <div className="dot"></div>
-              <div className="current__time">07:04 AM</div>
-            </div>
-          </div>
-          <div className="current__climate">
-            <i className="ri-showers-line icon"></i>
-            <div className="current__climate-type">Shower</div>
-          </div>
-        </header>
-
-        <footer className="current__footer">
-          <div className="current__stats">
-            <div className="current__wind">
-              <div className="current__label">Wind</div>
-              <i className="ri-windy-line icon"></i>
-              <span className='speed'>2 mph</span>
-            </div>
-
-            <div className="current__humidity">
-              <div className="current__label">Humidity</div>
-              <i className="ri-bubble-chart-line icon"></i>
-              <span>72%</span>
-            </div>
-
-            <div className="current__pressure">
-              <div className="current__label">Pressure</div>
-              <i className="ri-focus-2-line icon"></i>
-              <span>1016 mb</span>
-            </div>
-
-            <div className="current__air-quality">
-              <div className="current__label">Air Quality</div>
-              <i className="ri-loader-line icon"></i>
-              <span>Good</span>
-            </div>
-          </div>
-
-          <div className="current__temp">19<span>°C</span></div>
-        </footer>
-      </> */}
-      
-
-      {/* grid 2 */}
       <div className="current__main">
         <div className='current__place'>
           <div>
@@ -108,7 +54,7 @@ const Current = () => {
           </div>
           <i className={`${weatherIcon} icon`}></i>
         </div>
-        <div className="current__temp">{temp}<span>°C</span></div>
+        <div className="current__temp">{unit === 'celsius' ? temp : celsiusToFahrenheit(temp) }<span>°{unit.charAt(0).toUpperCase()}</span></div>
       </div>
 
       <div className="current__time">
@@ -133,7 +79,7 @@ const Current = () => {
         <div className="current__wind">
           <div className="current__label">Wind</div>
           <i className="ri-windy-line icon"></i>
-          <span className='speed'><span>{speed}</span> mph</span>
+          <span className='speed'><span>{speed}</span> mps</span>
         </div>
 
         <div className="current__pressure">

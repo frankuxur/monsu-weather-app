@@ -10,32 +10,9 @@
 /* variables */
 :root {
     /* colors */
-    /* --bg-1: #202124;
-    --bg-2: #28282C;
-    --bg-3: #1d1d1f;
-    --goshawk-gray: #444444;
-    --text-1: #ffffffde;
-    --text-2: #9aa0a6;
-    --text-3: #ededed;
-    --error: #e84f4f;
-    --warning-1: #e8c44f;
-    --warning-2: #ecc33d;
-    --success: #14f070;
-    --white: #FEFEFE;
-    --silver: #CCCCCC;
-    --seasalt: #F6F6F6;
-    --snow: #FBF8FB;
-    --tanzanite-blue: #0f4a6d;
-    --teal: #0eaba8; */
-
-    /* new colors */
-    /* --bg-1: #242424;
+    --bg-1: #242424;
     --bg-2: #1a1a1a;
-    --color: #e3e3e3; */
-
-    --bg-1: #FBF8FB;
-    --bg-2: #F6F6F6;
-    --color: #3C3C3C;
+    --color: #e3e3e3;
     
     --tangerine: #FFA68B;
 
@@ -81,6 +58,18 @@
     --manrope: "Manrope", sans-serif;
 }
 
+/* themes */
+[data-theme="light"] {
+  --bg-1: #FBF8FB;
+  --bg-2: #F6F6F6;
+  --color: #3C3C3C;
+  transition: background 0.4s 0.1s ease-out;
+}
+
+[data-theme="dark"] {
+  transition: background 0.4s 0.1s ease-out;
+}
+
 
 /* reset */
 *, 
@@ -89,6 +78,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* border: 1px dashed lightcoral; */
 }
 
 html {

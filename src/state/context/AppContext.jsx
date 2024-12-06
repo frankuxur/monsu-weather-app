@@ -22,6 +22,10 @@ export const AppProvider = ({ children }) => {
         dispatch({ type: 'SET_NOTFOUND', payload  })
     }
 
+    const setUnit = (payload) => {
+        dispatch({ type: 'SET_UNIT', payload  })
+    }
+
     const value = {
         weather: state,
         setWeather,
@@ -30,6 +34,9 @@ export const AppProvider = ({ children }) => {
         notFound: state.notFound,
         setNotFound,
         resetWeather,
+        unit: state.unit,
+        setUnit,
+
     }
 
     return (

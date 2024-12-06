@@ -21,11 +21,11 @@ const SearchBar = () => {
   return (
     <form onSubmit={handleSubmit} className="searchbar">
         <input 
-            type="text" 
-            placeholder='type a location'
-            className="searchbar__input" 
-            value={text}
-            onChange={e => setText(formatText(e.target.value))}
+          type="text" 
+          placeholder='type a location'
+          className="searchbar__input" 
+          value={text}
+          onChange={e => setText(formatText(e.target.value))}
         />
         <button className="searchbar__button">
           {loading ? <Loader /> : (
