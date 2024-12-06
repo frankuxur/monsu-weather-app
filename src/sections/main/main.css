@@ -8,12 +8,10 @@
     align-items: center;
     justify-content: center;
     gap: var(--xl);
-    /* border: 1px dashed lightcoral; */
 }
 
 .main__header {
     text-align: center;
-    /* border: 1px dashed lightcoral; */
     width: 100%;
 }
 
@@ -24,21 +22,24 @@
     letter-spacing: -0.16rem;
 }
 
+.main__title .icon {
+    font-size: 2.36rem;
+    font-weight: 100;
+}
+
 .main__subtitle {
     font-size: var(--font-s);
+    opacity: 0.4;
 }
 
 
 /* art */
 .main__art {
-    /* width: 18rem; */
-    /* border: 1px dashed lightcoral; */
-    /* padding: var(--xxs); */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--xxs); 
-    color: rgba(0 0 0 / 0.7);
+    gap: var(--xxs);
+    color: var(--color);
     transform-origin: top;
     scale: 2;
 }
@@ -94,7 +95,6 @@
     justify-content: center;
     align-items: flex-start;
     gap: var(--xxs);
-    /* border: 1px dashed lightcoral; */
 }
 
 .main__art-search {

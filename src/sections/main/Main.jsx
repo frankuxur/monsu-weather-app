@@ -25,7 +25,7 @@ const Main = () => {
         )}
         
         {/* weather */}
-        <Weather />
+        <Weather showSearch={showSearch} />
       </div>
     </main>
   )

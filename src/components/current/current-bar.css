@@ -36,8 +36,15 @@
     gap: var(--s);
 }
 
+.current__place div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--xxxs);
+}
+
 .current__title {
-    font-weight: var(--bold);
+    font-weight: var(--semi-bold);
+    line-height: 1;
 }
 
 .current__place .icon {
@@ -46,18 +53,19 @@
 
 .current__climate {
     font-size: var(--font-s);
+    line-height: 1.1;
     opacity: 0.6;
 }
 
 .current__temp {
     font-size: var(--font-3xl);
     display: flex;
-    align-items: center;
     font-family: var(--grotesk);
 }
 
 .current__temp span {
-    font-size: var(--font-s);
+    margin-top: var(--xxxs);
+    font-size: var(--font-m);
     opacity: 0.8;
 }
 
@@ -85,10 +93,9 @@
 }
 
 .current__day {
-    /* width: 2rem; */
     width: 1.7rem;
     aspect-ratio: 1;
-    border-radius: var(--s);
+    border-radius: var(--xs);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,6 +110,7 @@
 
 .current__day.active {
     border: 0.16rem solid coral;
+    box-shadow: 0 8px 32px 2px rgba(243, 98, 45, 0.37);
 }
 
 .current__humidity {
@@ -136,12 +144,13 @@
     justify-content: flex-end;
     align-items: center;
     padding-right: var(--xxxs);
+    transition: 0.6s cubic-bezier(0.66, 0.28, 0.14, 1.15);
 }
 
 .current__stats {    
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--xl) var(--m);
+    gap: var(--xl) var(--l);
     font-size: var(--font-s);
 }
 
@@ -159,4 +168,10 @@
 .current__date span,
 .current__hour span {
     font-family: var(--grotesk);
+}
+
+.current__temp,
+.current__week,
+.current__bar {
+    user-select: none;
 }

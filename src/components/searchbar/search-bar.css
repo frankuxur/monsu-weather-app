@@ -3,15 +3,19 @@
 }
 
 .searchbar__input {
+    color: var(--color);
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
     backdrop-filter: blur(4px);
-    /* border-radius: var(--l); */
-    border-radius: 0.6rem;
+    border-radius: var(--l);
     border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
     padding: var(--s);
     padding-right: var(--xxxl);
-    /* border: 1px dashed coral; */
+}
+
+.searchbar__input::placeholder {
+    opacity: 0.3;
+    color: var(--color);
 }
 
 .searchbar__button {

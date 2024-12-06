@@ -10,6 +10,9 @@ import {
     Tooltip,
     Legend
 } from 'chart.js'
+import { useContext } from 'react'
+import { AppContext } from '../../state/context/AppContext'
+import icons from '../../assets/json/icons.json'
 
 ChartJS.register (
     CategoryScale,
@@ -22,24 +25,30 @@ ChartJS.register (
 )
 
 const Forecast = () => {
+  const { weather: { forecast } } = useContext(AppContext)
+  const { temperature_2m_max, temperature_2m_min, time, weather_code } = forecast
+  const temps = temperature_2m_max.filter((_, i) => i !== 0)
 
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"]
+  const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  const newTime = time.map(t => {
+    const dayName = days[new Date(t).getDay()]
+    const dayNumber = new Date(t).getDate()
+    const monthName = months[new Date(t).getMonth()]
+    return {
+      dayName, dayNumber, monthName
+    }
+  })
+  newTime.shift()
   
-  const temps = [
-    22.6,
-    23.8,
-    23.6,
-    22.1,
-    21.5,
-    21.6
-  ]
   const data = {
     labels: temps,
     datasets: [
         {
-            label: '',
-            data: temps,
-            borderColor: '#CCCCCC',
-            cubicInterpolationMode: 'monotone',
+          label: '',
+          data: temps,
+          borderColor: '#CCCCCC',
+          cubicInterpolationMode: 'monotone',
         }
     ]
   }  
@@ -48,36 +57,36 @@ const Forecast = () => {
     responsive: true,
     maintainAspectRatio: false,
     legend: {
-        display: false, // Hide legend labels
+      display: false, // Hide legend labels
     },
     plugins: {
-        legend: {
-            display: false,
-        } 
+      legend: {
+        display: false,
+      } 
     },
     scales: {    
-        x: {  
-            ticks:{
-                display: false 
-            },    
-            border: {
-              display: false
-            },   
-            grid: {
-                color: '#f0f0f0',
-            },      
-        },
-        y: {  
-            ticks:{
-                display: false
-            },   
-            border: {
-              display: false
-            },        
-            grid: {
-                display: false
-            },      
-        },
+      x: {  
+        ticks:{
+          display: false 
+        },    
+        border: {
+          display: false
+        },   
+        grid: {
+          color: '#f0f0f0',
+        },      
+      },
+      y: {  
+        ticks:{
+          display: false
+        },   
+        border: {
+          display: false
+        },        
+        grid: {
+          display: false
+        },      
+      },
     },  
     events: [],
   }
@@ -90,41 +99,13 @@ const Forecast = () => {
 
       <div className="forecast__content">
         <div className="forecast__info">
-            <div className="forecast__info-box">
-              <i className={`ri-showers-line icon icon`}></i>
-              <span className="forecast__temp-high">{'21'}°</span>
-              <span className="forecast__temp-low">{'13'}° <i className="ri-arrow-down-line icon"></i></span>
-            </div>
-            
-            <div className="forecast__info-box">
-              <i className={`ri-showers-line icon icon`}></i>
-              <span className="forecast__temp-high">{'21'}°</span>
-              <span className="forecast__temp-low">{'13'}° <i className="ri-arrow-down-line icon"></i></span>
-            </div>
-
-            <div className="forecast__info-box">
-              <i className={`ri-showers-line icon icon`}></i>
-              <span className="forecast__temp-high">{'21'}°</span>
-              <span className="forecast__temp-low">{'13'}° <i className="ri-arrow-down-line icon"></i></span>
-            </div>
-
-            <div className="forecast__info-box">
-              <i className={`ri-showers-line icon icon`}></i>
-              <span className="forecast__temp-high">{'21'}°</span>
-              <span className="forecast__temp-low">{'13'}° <i className="ri-arrow-down-line icon"></i></span>
-            </div>
-
-            <div className="forecast__info-box">
-              <i className={`ri-showers-line icon icon`}></i>
-              <span className="forecast__temp-high">{'21'}°</span>
-              <span className="forecast__temp-low">{'13'}° <i className="ri-arrow-down-line icon"></i></span>
-            </div>
-
-            <div className="forecast__info-box">
-              <i className={`ri-showers-line icon icon`}></i>
-              <span className="forecast__temp-high">{'21'}°</span>
-              <span className="forecast__temp-low">{'13'}° <i className="ri-arrow-down-line icon"></i></span>
-            </div>
+            {temps.map((temp, index) => (
+              <div key={index} className="forecast__info-box">
+                <i className={`${icons[weather_code[index+1]].icon} icon`}></i>
+                <span className="forecast__temp-high">{temp}°</span>
+                <span className="forecast__temp-low">{temperature_2m_min[index+1]}° <i className="ri-arrow-down-line icon"></i></span>
+              </div>
+            ))}
         </div>
 
         <div className="forecast__chart">
@@ -132,35 +113,12 @@ const Forecast = () => {
         </div>
 
         <div className="forecast__days">
-          <div className="forecast__day">
-            <span className="forecast__dayName">Mon</span>
-            <span className="forecast__date">Dec 7</span>
-          </div>
-          
-          <div className="forecast__day">
-            <span className="forecast__dayName">Mon</span>
-            <span className="forecast__date">Dec 7</span>
-          </div>
-
-          <div className="forecast__day">
-            <span className="forecast__dayName">Mon</span>
-            <span className="forecast__date">Dec 7</span>
-          </div>
-
-          <div className="forecast__day">
-            <span className="forecast__dayName">Mon</span>
-            <span className="forecast__date">Dec 7</span>
-          </div>
-
-          <div className="forecast__day">
-            <span className="forecast__dayName">Mon</span>
-            <span className="forecast__date">Dec 7</span>
-          </div>
-
-          <div className="forecast__day">
-            <span className="forecast__dayName">Mon</span>
-            <span className="forecast__date">Dec 7</span>
-          </div>
+          {newTime.map(({dayName, dayNumber, monthName}) => (
+            <div key={dayNumber} className="forecast__day">
+              <span className="forecast__dayName">{dayName}</span>
+              <span className="forecast__date">{`${monthName} ${dayNumber}`}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -13,13 +13,8 @@
     gap: var(--xl);
 }
 
-.forecast {
-    /* padding: var(--xxs); */
-}
-
 .forecast__header {
     position: relative;
-    /* margin-bottom: var(--l); */
 }
 
 .forecast__title {
@@ -37,7 +32,6 @@
 .forecast__chart {
     width: 95%;
     height: 8.7rem;
-    /* margin-inline: auto; */
 }
 
 .forecast__info,
@@ -65,14 +59,14 @@
     width: 2rem;
     height: 2rem;
     border-radius: 0.6rem;
-    background: rgba( 255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.063);
     box-shadow: 0 4px 16px 0 rgba(93, 94, 99, 0.137);
     backdrop-filter: blur(4px);
-    border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
+    border: 0.01rem solid rgba( 255, 255, 255, 0.18);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.2rem;
 }
 
 .forecast__temp-high {
@@ -82,8 +76,7 @@
 
 .forecast__temp-low {
     font-size: var(--font-xs);
-    font-weight: var(--semi-bold);
-    opacity: 0.4;
+    opacity: 0.5;
     display: flex;
     align-items: flex-end;
 }
@@ -100,6 +93,6 @@
 
 .forecast__date {
     font-size: var(--font-xs);
-    font-weight: var(--bolder);
-    opacity: 0.3;
+    font-weight: var(--bold);
+    opacity: 0.35;
 }

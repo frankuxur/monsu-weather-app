@@ -7,3 +7,46 @@
     align-items: flex-start;
     gap: var(--m);
 }
+
+.globe,
+.not-found {
+    width: 100%;
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+}
+.globe .icon {
+    font-size: var(--font-4xl);
+    font-weight: var(--lighter);
+    opacity: 0.2;
+    background-color: rgba(93, 94, 99, 0.188);
+    box-shadow: 0 8px 32px 70px rgba(93, 94, 99, 0.188);
+    border-radius: 50%;
+}
+
+.not-found {
+    position: relative;
+}
+
+.not-found h1 {
+    width: 40%;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.not-found span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--grotesk);
+    font-weight: var(--bolder);
+    font-size: 24rem;
+    /* dark mode */
+    opacity: 0.01;
+    /* make it 0.05 when in light mode
+    opacity: 0.05; */
+}

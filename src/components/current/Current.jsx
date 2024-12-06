@@ -1,20 +1,54 @@
 // import './current.css'
+import { useContext, useEffect, useState } from 'react'
 import './current-bar.css'
+import { AppContext } from '../../state/context/AppContext'
+import parseDateTime from '../../helpers/parseDateTime'
+import icons from '../../assets/json/icons.json'
 
 const Current = () => {
+
+  const [humidityPercentage, setHumidityPercentage] = useState(10)
+  const data = useContext(AppContext)
+  const { weather: { current } } = data
+  const { place, main: { temp, pressure, humidity }, timezone, visibility, weather: [ { description, icon } ], wind: { speed }, aqi, time: { time }, uvIndex } = current || {}
+
+  const { month, day, time: t, meridian, dayIndex } = parseDateTime(time)
+  let aqiText = ''
+  switch (aqi) {
+    case 1:
+      aqiText = 'Good'
+      break;
+    case 2:
+      aqiText = 'Fair'        
+      break;
+    case 3:
+      aqiText = 'Moderate'        
+      break;
+    case 4:
+      aqiText = 'Poor'        
+      break;
+    case 5:
+      aqiText = 'Very Poor'        
+      break;
+  
+    default:
+      aqiText = ''
+  }
+
+  const weatherIcon = icons[icon]
+  
+  useEffect(() => {
+    // setHumidityPercentage(10)
+    setTimeout(() => {
+      setHumidityPercentage(humidity)
+    }, 500);
+  }, [data])
+
+  
+  
+
   return (
     <div className="current">
-      {/* name */}
-      {/* date & time */}
-      {/* icon */}
-      {/* climate */}
-      {/* wind speed & direction */}
-      {/* humidity */}
-      {/* pressure */}
-      {/* uv index */}
-      {/* air quality */}
-      {/* temp */}
-      
       {/* grid 1 */}
       {/* <>
         <header className="current__header">
@@ -69,33 +103,29 @@ const Current = () => {
       <div className="current__main">
         <div className='current__place'>
           <div>
-            <h4 className="current__title">Los Angeles</h4>
-            <div className="current__climate">Shower</div>
+            <h4 className="current__title">{place}</h4>
+            <div className="current__climate">{description}</div>
           </div>
-          <i className="ri-showers-line icon"></i>
+          <i className={`${weatherIcon} icon`}></i>
         </div>
-        <div className="current__temp">19<span>°C</span></div>
+        <div className="current__temp">{temp}<span>°C</span></div>
       </div>
 
       <div className="current__time">
-        <div className="current__date">June <span>30</span></div>
-        <div className="current__hour"><span>07:04</span> AM</div>
+        <div className="current__date">{month} <span>{day}</span></div>
+        <div className="current__hour"><span>{t}</span> {meridian}</div>
 
         <ul className="current__week">
-          <li className="current__day">m</li>
-          <li className="current__day">t</li>
-          <li className="current__day">w</li>
-          <li className="current__day active">t</li>
-          <li className="current__day">f</li>
-          <li className="current__day">s</li>
-          <li className="current__day">s</li>
+          {['s', 'm', 't', 'w', 't', 'f', 's'].map((d, i) => (
+            <li key={i} className={`current__day ${dayIndex === i ? 'active' : ''}`}>{d}</li>
+          ))}
         </ul>
       </div>
       
       <div className="current__humidity">
         <div className="current__label">Humidity</div>
         <div className="current__bar">
-          <span>72%</span>
+          <span style={{ width: `${humidityPercentage}%` }} >{humidity}%</span>
         </div>
       </div>
     
@@ -103,25 +133,25 @@ const Current = () => {
         <div className="current__wind">
           <div className="current__label">Wind</div>
           <i className="ri-windy-line icon"></i>
-          <span className='speed'><span>2</span> mph</span>
+          <span className='speed'><span>{speed}</span> mph</span>
         </div>
 
         <div className="current__pressure">
           <div className="current__label">Pressure</div>
           <i className="ri-focus-2-line icon"></i>
-          <span><span>1016</span> mb</span>
+          <span><span>{pressure}</span> mb</span>
         </div>
 
         <div className="current__air-quality">
           <div className="current__label">Air Quality</div>
           <i className="ri-loader-line icon"></i>
-          <span>Good</span>
+          <span>{aqiText}</span>
         </div>
 
         <div className="current__uv-index">
           <div className="current__label">UV Index</div>
           <i className="ri-sun-line icon"></i>
-          <span><span>5.7</span></span>
+          <span><span>{uvIndex}</span></span>
         </div>
       </div>
     </div>
