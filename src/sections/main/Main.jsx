@@ -5,6 +5,7 @@ import MainHeader from './MainHeader'
 import Weather from '../weather/Weather'
 import Settings from '../../components/settings/Settings'
 import Art from '../../components/art/Art'
+import FadeInOut from '../../utils/FadeInOut'
 
 const Main = () => {
   const [isHover, setIsHover] = useState(false)
@@ -17,18 +18,27 @@ const Main = () => {
 
         <Settings />
 
-        {showSearch ? (
-          <SearchBar />
-        ) : (
-          <Art 
-            isHover={isHover} 
-            setIsHover={setIsHover} 
-            setShowSearch={setShowSearch}
-          />
-        )}
+          {showSearch && (
+            <FadeInOut show={true} duration={1000}>
+              <SearchBar />
+            </FadeInOut>
+          )}
+
+          {!showSearch && (
+            <FadeInOut show={true} duration={1000}>
+              <Art 
+                isHover={isHover} 
+                setIsHover={setIsHover} 
+                setShowSearch={setShowSearch}
+              />
+            </FadeInOut>
+          )}
         
         {/* weather */}
-        <Weather showSearch={showSearch} />
+        <FadeInOut show={true} duration={1000}>
+          <Weather showSearch={showSearch} />
+        </FadeInOut>
+        
       </div>
     </main>
   )

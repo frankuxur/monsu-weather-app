@@ -2,11 +2,16 @@ import { useContext, useState } from "react"
 import { AppContext } from "../state/context/AppContext"
 
 const useGetWeather = () => {
-    const { setWeather, setLoading, setNotFound, resetWeather } = useContext(AppContext)
+    const { setWeather, setLoading, setNotFound, resetWeather, query, setQuery } = useContext(AppContext)
 
     const getWeather = async (text) => {
+
+        if (query.trim().toLowerCase() === text.trim().toLowerCase()) return
+
         setLoading(true)
+        setQuery(text)
         setNotFound(false)
+        resetWeather()
 
         try {
             // weather
@@ -40,7 +45,11 @@ const useGetWeather = () => {
             setWeather(weather)
             
         } catch (error) {
-            setNotFound(true)
+            if (error.message === 'Failed to fetch') {
+                setNotFound({ value: true, message: 'Whoopsies! Bad network, check your connection.' })
+            } else {
+                setNotFound({ value: true, status: 404, message: 'Whoopsies! Looks like we couldn\'t snag the weather report for that spot.' })
+            }
             resetWeather()
 
         } finally {

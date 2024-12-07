@@ -5,7 +5,7 @@
     transform: translate(-50%, 20%);
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
     border: 0.01rem solid rgba(218, 166, 166, 0.18);
     opacity: 0;
     pointer-events: none;
@@ -22,13 +22,14 @@
 
 .settings__open {
     font-size: var(--font-xl);
+    font-weight: var(--lighter);
     position: fixed;
     bottom: 4%;
     left: 50%;
     transform: translate(-50%, 20%);
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 62px 12px rgba(93, 94, 99, 0.799);
+    backdrop-filter: blur(6px);
     width: 2rem;
     aspect-ratio: 1;
     border-radius: var(--xs);
@@ -36,6 +37,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.3s 0.1s ease-out, filter 0.2s ease-out;
+    z-index: 1;
 }
 
 .settings.active,
@@ -50,7 +52,7 @@
 }
 
 .settings__open:hover {
-    filter: brightness(1.8);
+    filter: brightness(1.4);
 }
 
 .settings__header {
@@ -122,4 +124,25 @@
 .settings__button:hover .dot,
 .settings__button.active .dot {
     opacity: 1;
+}
+
+
+
+/* media query */
+@media (max-width: 320px) {
+    
+    .settings {    
+        width: 98%;
+    }
+
+    .settings__options {
+        flex-direction: column;
+    }
+
+    .settings .line {
+        border-top: 0.01rem solid var(--color);
+        flex: 1;
+    }
+    
+    
 }

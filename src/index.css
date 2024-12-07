@@ -1,8 +1,6 @@
 /* fonts */
 /* Space Grotesk */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-/* Inter Tight */
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 /* Manrope */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
@@ -53,7 +51,6 @@
     --content-width: 60rem;
 
     /* font family */
-    --inter: "Inter Tight", sans-serif;
     --grotesk: "Space Grotesk", sans-serif;
     --manrope: "Manrope", sans-serif;
 }
@@ -116,7 +113,7 @@ h6 {
   font-weight: normal;
   color: inherit;
   margin: 0;
-  font-family: var(--inter);
+  font-family: var(--manrope);
 }
 
 fieldset, button, input, select, textarea, hr {

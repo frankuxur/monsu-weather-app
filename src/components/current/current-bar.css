@@ -177,3 +177,37 @@
 .current__bar {
     user-select: none;
 }
+
+
+
+/* media query */
+@media (max-width: 1080px) {
+
+    .current__humidity,
+    .current__stats {
+        flex: 100%;
+    }
+
+    .current__humidity {
+        align-items: flex-start;
+    }
+
+    .current__bar {
+        justify-content: flex-start;
+    }
+    
+    .current__bar span {
+        justify-content: flex-start;
+        margin-inline: 0.4% 0;
+        padding-inline: var(--xxxs) 0;
+    }
+    
+}
+
+@media (max-width: 480px) {
+
+    .current > * {
+        padding: var(--s);
+    }
+
+}

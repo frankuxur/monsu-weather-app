@@ -1,5 +1,5 @@
 .main {
-    margin-top: var(--xxxxl);
+    margin-bottom: var(--xxxxl);
 }
 
 .main__content {
@@ -20,16 +20,28 @@
 .main__title {
     font-weight: var(--bold);
     color: var(--color);
-    font-size: var(--font-3xl);
+    font-size: var(--font-xxl);
     letter-spacing: -0.16rem;
+    font-family: var(--manrope);
 }
 
 .main__title .icon {
-    font-size: 2.36rem;
+    font-size: 2rem;
     font-weight: 100;
 }
 
 .main__subtitle {
     font-size: var(--font-s);
     opacity: 0.4;
+}
+
+
+
+/* media query */
+@media (max-width: 480px) {
+    
+    .main__subtitle {
+        padding-inline: var(--xs);
+    }
+
 }

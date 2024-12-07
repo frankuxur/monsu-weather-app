@@ -1,14 +1,20 @@
 export const initialState = {
+    query: '',
     current: {},
     forecast: {},
     loading: false,
-    notFound: false,
+    notFound: { value: false, message: '' },
     unit: 'celsius',
 }
 
 const appReducer = (state, action) => {
     const { type, payload } = action
     switch (type) {
+        case 'SET_QUERY':
+            return {
+                ...state,
+                query: payload
+            }
         case 'SET_WEATHER':
             const { name, main, timezone, visibility, weather, wind, aqi, time, forecast, uvIndex } = payload
             return {

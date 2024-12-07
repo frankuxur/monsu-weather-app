@@ -51,6 +51,7 @@
 
 .forecast__info-box {
     font-family: var(--grotesk);
+    position: relative;
 }
 
 .forecast__info-box > .icon {
@@ -95,4 +96,103 @@
     font-size: var(--font-xs);
     font-weight: var(--bold);
     opacity: 0.35;
+}
+
+/* tooltop */
+.tooltip {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 140%);
+    background-color: var(--color);
+    color: var(--bg-1);
+    white-space: nowrap;
+    font-family: var(--manrope);
+    border-radius: 0.6rem;
+    box-shadow: 0 4px 32px 0 rgba(57, 57, 62, 0.271);
+    padding: var(--xxxs) var(--xxs);
+    font-size: var(--font-s);
+    transition: 0.3s;
+}
+
+.forecast__info-box:first-child .tooltip {
+    transform: translate(-50%, 120%);
+}
+
+.forecast__info-box:last-child .tooltip {
+    transform: translate(-50%, 120%);
+}
+
+.tooltip:has(+ .icon:hover) {
+    opacity: 1;
+    transform: translate(-50%, 120%);
+}
+
+.forecast__info-box:first-child .tooltip:has(+ .icon:hover) {
+    opacity: 1;
+    transform: translate(-30%, 120%);
+}
+
+.forecast__info-box:last-child .tooltip:has(+ .icon:hover) {
+    opacity: 1;
+    transform: translate(-70%, 120%);
+}
+
+
+
+/* media query */
+@media (max-width: 768px) {
+
+    .forecast {
+        flex: 100%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .forecast {
+        padding: var(--xxs);
+    }
+
+    .forecast__header {
+        padding: var(--xxs);
+    }
+    
+    .forecast__chart {
+        width: 95%;
+        height: 6rem;
+    }
+
+    .forecast__info,
+    .forecast__days {
+        width: 100%;
+    }
+
+    .forecast__info-box > .icon {
+        font-size: var(--m);
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 0.4rem;
+        position: relative;
+    }
+
+    .forecast__temp-high {
+        font-size: var(--font-xxs);
+    }
+    
+    .forecast__temp-low {
+        font-size: var(--font-xxs);
+    }
+
+    .forecast__dayName {
+        font-size: var(--font-xxs);
+    }
+    
+    .forecast__date {
+        font-size: var(--font-xxs);
+    }
+
 }

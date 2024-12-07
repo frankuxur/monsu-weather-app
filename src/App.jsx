@@ -1,19 +1,24 @@
 import './App.css'
+import FadeInOut from './utils/FadeInOut'
 
 // sections
 import Main from './sections/main/Main'
-import Footer from './sections/footer/Footer'
+import Header from './sections/header/Header'
 
 function App() {
 
   return (
     <div className="app">
       <div className="app__content">
-        {/* main */}
-        <Main />
+        {/* header */}
+        <FadeInOut show={true} duration={800}>
+          <Header />
+        </FadeInOut>
 
-        {/* footer */}
-        {/* <Footer /> */}
+        {/* main */}
+        <FadeInOut show={true} duration={1000}>
+          <Main />
+        </FadeInOut>
       </div>
     </div>
   )

@@ -18,6 +18,7 @@
     pointer-events: none;
     user-select: none;
 }
+
 .globe .icon {
     font-size: var(--font-4xl);
     font-weight: var(--lighter);
@@ -47,6 +48,37 @@
     font-size: 24rem;
     /* dark mode */
     opacity: 0.01;
-    /* make it 0.05 when in light mode
-    opacity: 0.05; */
+}
+
+/* light mode */
+body[data-theme="light"] .not-found span {
+    opacity: 0.05;
+}
+
+
+
+/* media query */
+@media (max-width: 768px) {
+
+    .weather__content {
+        align-items: initial;
+        flex-direction: column;
+    }
+
+    .not-found h1 {
+        width: 70%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .not-found h1 {
+        width: 98%;
+        font-size: var(--font-xl);
+    }
+
+    .not-found span {
+        font-size: 14rem;
+    }
 }

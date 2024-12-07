@@ -25,7 +25,6 @@
     transform: translateY(-50%);
     padding-inline: var(--s);
     transition: 0.3s;
-    /* border: 1px dashed coral; */
 }
 
 .searchbar__button:hover {

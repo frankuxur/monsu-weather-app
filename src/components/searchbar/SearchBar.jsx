@@ -15,23 +15,28 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!text.trim()) return
-    getWeather(text)
+    getWeather(text.trim())
+  }
+
+  const handleChange = (e) => {
+    setText(formatText(e.target.value))
   }
 
   return (
     <form onSubmit={handleSubmit} className="searchbar">
-        <input 
-          type="text" 
-          placeholder='type a location'
-          className="searchbar__input" 
-          value={text}
-          onChange={e => setText(formatText(e.target.value))}
-        />
-        <button className="searchbar__button">
-          {loading ? <Loader /> : (
-            <i className={`ri-${text.trim() ? 'arrow-right' : 'search'}-line icon`}></i>
-          )}
-        </button>
+      <input 
+        type="text" 
+        placeholder='type a location'
+        className="searchbar__input" 
+        value={text}
+        onChange={handleChange}
+      />
+      
+      <button className="searchbar__button">
+        {loading ? <Loader /> : (
+          <i className={`ri-${text.trim() ? 'arrow-right' : 'search'}-line icon`}></i>
+        )}
+      </button>
     </form>
   )
 }

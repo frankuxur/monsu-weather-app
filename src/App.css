@@ -3,17 +3,34 @@
     min-height: 100svh;
     display: flex;
     justify-content: center;
-    /* border: 1px dashed coral; */
+    overflow: hidden;
 }
 
 .app__content {
     min-height: 100%;
     width: var(--content-width);
-    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     gap: var(--xxxxl);
-    /* border: 1px dashed coral; */
+}
+
+
+
+/* media query */
+@media (max-width: 1080px) {
+    
+    .app__content {    
+        padding-inline: var(--s);
+    }
+    
+}
+
+@media (max-width: 480px) {
+    
+    .app__content {    
+        padding-inline: var(--xxxs);
+    }
+
 }

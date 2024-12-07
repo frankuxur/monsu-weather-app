@@ -6,6 +6,10 @@ export const AppContext = createContext(null)
 export const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(appReducer, initialState)
 
+    const setQuery = (payload) => {
+        dispatch({ type: 'SET_QUERY', payload })
+    }
+
     const setWeather = (payload) => {
         dispatch({ type: 'SET_WEATHER', payload  })
     }
@@ -27,6 +31,8 @@ export const AppProvider = ({ children }) => {
     }
 
     const value = {
+        query: state.query,
+        setQuery,
         weather: state,
         setWeather,
         loading: state.loading,
