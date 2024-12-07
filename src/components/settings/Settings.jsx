@@ -7,11 +7,11 @@ const Settings = () => {
   const [showSettings, setShowSettings] = useState(false)  
   const { unit, setUnit } = useContext(AppContext)  
   const [theme, setTheme] = useState('dark')
+
   const handleSetTheme = (newTheme) => {
     document.querySelector('body').setAttribute('data-theme', newTheme)
     setTheme(newTheme)
   }
-
 
   return (
     <>

@@ -7,7 +7,7 @@ import FadeInOut from '../../utils/FadeInOut'
 
 const Weather = ({ showSearch }) => {
 
-  const { weather: { current, forecast }, loading, notFound } = useContext(AppContext)
+  const { current, forecast, loading, notFound } = useContext(AppContext)
 
   // error handle
   if (notFound.value) {

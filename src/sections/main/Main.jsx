@@ -18,21 +18,21 @@ const Main = () => {
 
         <Settings />
 
-          {showSearch && (
-            <FadeInOut show={true} duration={1000}>
-              <SearchBar />
-            </FadeInOut>
-          )}
+        {showSearch && (
+          <FadeInOut show={true} duration={1000}>
+            <SearchBar />
+          </FadeInOut>
+        )}
 
-          {!showSearch && (
-            <FadeInOut show={true} duration={1000}>
-              <Art 
-                isHover={isHover} 
-                setIsHover={setIsHover} 
-                setShowSearch={setShowSearch}
-              />
-            </FadeInOut>
-          )}
+        {!showSearch && (
+          <FadeInOut show={true} duration={1000}>
+            <Art 
+              isHover={isHover} 
+              setIsHover={setIsHover} 
+              setShowSearch={setShowSearch}
+            />
+          </FadeInOut>
+        )}
         
         {/* weather */}
         <FadeInOut show={true} duration={1000}>

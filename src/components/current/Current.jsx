@@ -9,9 +9,8 @@ import celsiusToFahrenheit from '../../utils/switchUnit'
 const Current = () => {
   
   const [humidityPercentage, setHumidityPercentage] = useState(10)
-  const data = useContext(AppContext)
-  const { weather: { current }, unit } = data
-  const { place, main: { temp, pressure, humidity }, timezone, visibility, weather: [ { description, icon } ], wind: { speed }, aqi, time: { time }, uvIndex } = current || {}
+  const { current, unit } = useContext(AppContext)
+  const { place, main: { temp, pressure, humidity }, timezone, visibility, weather: [ { description, icon } ], wind: { speed, deg }, aqi, time: { time }, uvIndex } = current || {}
 
   const { month, day, time: t, meridian, dayIndex } = parseDateTime(time)
   let aqiText = ''
@@ -42,7 +41,7 @@ const Current = () => {
     setTimeout(() => {
       setHumidityPercentage(humidity)
     }, 500);
-  }, [data])  
+  }, [current])  
 
   return (
     <div className="current">
@@ -82,10 +81,10 @@ const Current = () => {
           <span className='speed'><span>{speed}</span> mps</span>
         </div>
 
-        <div className="current__pressure">
-          <div className="current__label">Pressure</div>
-          <i className="ri-focus-2-line icon"></i>
-          <span><span>{pressure}</span> mb</span>
+        <div className="current__wind">
+          <div className="current__label">Direction</div>
+          <i className="ri-compass-discover-line icon"></i>
+          <span className='speed'><span>{deg}</span>°</span>
         </div>
 
         <div className="current__air-quality">
@@ -94,10 +93,22 @@ const Current = () => {
           <span>{aqiText}</span>
         </div>
 
+        <div className="current__visibility">
+          <div className="current__label">Visibility</div>
+          <i className="ri-goggles-line icon"></i>
+          <span>{visibility/1000} km</span>
+        </div>
+
         <div className="current__uv-index">
           <div className="current__label">UV Index</div>
           <i className="ri-sun-line icon"></i>
           <span><span>{uvIndex}</span></span>
+        </div>
+
+        <div className="current__pressure">
+          <div className="current__label">Pressure</div>
+          <i className="ri-focus-2-line icon"></i>
+          <span><span>{pressure}</span> mb</span>
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ ChartJS.register (
 )
 
 const Forecast = () => {
-  const { weather: { forecast }, unit } = useContext(AppContext)
+  const { forecast, unit } = useContext(AppContext)
   const { temperature_2m_max, temperature_2m_min, time, weather_code } = forecast
   const temps = temperature_2m_max.filter((_, i) => i !== 0)
 

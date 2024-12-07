@@ -8,7 +8,6 @@ import formatText from '../../utils/formatText'
 const SearchBar = () => {
 
   const [text, setText] = useState('')  
-
   const { getWeather } = useGetWeather()
   const { loading } = useContext(AppContext)
 

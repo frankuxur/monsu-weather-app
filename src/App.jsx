@@ -4,6 +4,7 @@ import FadeInOut from './utils/FadeInOut'
 // sections
 import Main from './sections/main/Main'
 import Header from './sections/header/Header'
+import Footer from './sections/footer/Footer'
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
         <FadeInOut show={true} duration={1000}>
           <Main />
         </FadeInOut>
+
+        {/* footer */}
+        <Footer />
       </div>
     </div>
   )

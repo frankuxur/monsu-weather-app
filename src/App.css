@@ -1,9 +1,10 @@
 .app {
     width: 100%;
-    min-height: 100svh;
+    min-height: 114svh;
     display: flex;
     justify-content: center;
     overflow: hidden;
+    position: relative;
 }
 
 .app__content {

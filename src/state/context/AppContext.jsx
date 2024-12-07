@@ -33,7 +33,8 @@ export const AppProvider = ({ children }) => {
     const value = {
         query: state.query,
         setQuery,
-        weather: state,
+        current: state.current,
+        forecast: state.forecast,
         setWeather,
         loading: state.loading,
         setLoading,

@@ -1,5 +1,6 @@
 .weather {
     width: 100%;
+    margin-bottom: var(--xxxxl);
 }
 
 .weather__content {
@@ -72,6 +73,10 @@ body[data-theme="light"] .not-found span {
 }
 
 @media (max-width: 480px) {
+
+    .weather {
+        margin-bottom: var(--xxxxl);
+    }
 
     .not-found h1 {
         width: 98%;
