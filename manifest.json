@@ -1,0 +1,73 @@
+{
+    "name": "Monsu",
+    "description": "Get instant weather insight with Monsu, a meteorologist in your pocket, but without the bulky equipment.",
+    "icons": [
+      {
+        "src": "/favicons/favicon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicons/favicon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicons/favicon-180x180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicons/favicon-32x32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicons/favicon-16x16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#1A1A1A",
+    "background_color": "#E3E3E3",
+    "screenshots": [
+    {
+      "src": "/screenshots/wide-1.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing the home section"
+    },
+    {
+      "src": "/screenshots/wide-2.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing the weather in New York"
+    },
+    {
+      "src": "/screenshots/wide-3.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing the settings bar"
+    },
+    {
+      "src": "/screenshots/narrow-1.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing the home section"
+    },
+    {
+      "src": "/screenshots/narrow-2.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing the weather in Oslo"
+    },
+    {
+      "src": "/screenshots/narrow-3.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing the settings bar"
+    }
+  ]
+  }
