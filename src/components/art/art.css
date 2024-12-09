@@ -1,4 +1,4 @@
-.main__art {
+.art {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -8,10 +8,9 @@
     scale: 2;
 }
 
-.main__art-top > .icon,
-.main__art-bottom > .icon,
-.main__art-gemini {
-    /* width: 5.375rem; */
+.art__top > .icon,
+.art__bottom > .icon,
+.art__gemini {
     width: 2.6875rem;
     aspect-ratio: 1;
     font-size: var(--font-m);
@@ -28,7 +27,7 @@
     aspect-ratio: 1;
 }
 
-.main__art-wave {
+.art__wave {
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
     backdrop-filter: blur( 4px );
@@ -43,17 +42,17 @@
     transition: 0.2s 0.1s ease-in;
 }
 
-.main__art-wave img {
+.art__wave img {
     scale: 1.2;
 }
 
-.main__art-top {
+.art__top {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--xxs);
 }
 
-.main__art-bottom {
+.art__bottom {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -61,8 +60,7 @@
     gap: var(--xxs);
 }
 
-.main__art-search {
-    /* flex: 1; */
+.art__search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,12 +76,12 @@
     animation: glow-border 1.5s infinite;
 }
 
-body[data-theme="light"] .main__art-search {
+body[data-theme="light"] .art__search {
     animation: glow-border-light 1.5s infinite;
 }
 
-.main__art-search:hover,
-body[data-theme="light"] .main__art-search:hover {
+.art__search:hover,
+body[data-theme="light"] .art__search:hover {
     animation: none;
 }
 
@@ -114,27 +112,26 @@ body[data-theme="light"] .main__art-search:hover {
     }
 }
 
-.main__art-gemini {
+.art__gemini {
     display: flex;
     flex-direction: column;
     gap: var(--xxs);
 }
 
-.main__art-gemini .icon {
+.art__gemini .icon {
     color: rgb(46, 102, 182);
     transition: 0.2s 0.1s ease-in;
 }
 
-.main__art.active .main__art-wave,
-.main__art.active .main__art-top .icon,
-.main__art.active > .icon,
-.main__art.active .main__art-bottom > * {
-    /* background-color: #ffa68b71; */
+.art.active .art__wave,
+.art.active .art__top .icon,
+.art.active > .icon,
+.art.active .art__bottom > * {
     color: var(--tangerine);
     border-color: var(--tangerine);
 }
 
-.main__art.active .main__art-gemini > .icon {
+.art.active .art__gemini > .icon {
     color: var(--tangerine);
 }
 
@@ -143,7 +140,7 @@ body[data-theme="light"] .main__art-search:hover {
 /* media query */
 @media (max-width: 640px) {
     
-    .main__art {
+    .art {
         scale: 1.6;
     }
         
@@ -151,7 +148,7 @@ body[data-theme="light"] .main__art-search:hover {
 
 @media (max-width: 480px) {
     
-    .main__art {
+    .art {
         scale: 1.2;
     }
 
@@ -159,7 +156,7 @@ body[data-theme="light"] .main__art-search:hover {
 
 @media (max-width:  320px) {
     
-    .main__art {
+    .art {
         scale: 1;
     }
 

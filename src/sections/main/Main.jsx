@@ -16,6 +16,7 @@ const Main = () => {
       <div className="main__content">
         <MainHeader />
 
+        {/* settings button & options */}
         <Settings />
 
         {showSearch && (

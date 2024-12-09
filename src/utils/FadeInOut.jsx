@@ -1,3 +1,4 @@
+// wraps around a component to make it fade in & out when mounting & unmounting
 import React, { Component } from "react";
 
 const UNMOUNTED = "unmounted";

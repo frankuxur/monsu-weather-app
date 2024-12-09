@@ -12,9 +12,9 @@ const Footer = () => {
         <div className="footer__links">
           <div>Links</div>
 
-          <a href="https://www.ashishfrank.com" className="footer__link"><i className="ri-global-line"></i>ashishfrank.com</a>
+          <a href="https://www.ashishfrank.com" target='_blank' className="footer__link"><i className="ri-global-line"></i>ashishfrank.com</a>
           
-          <a href="mailto:ashishfrank.career@gmail.com" className="footer__link"><i className="ri-mail-line"></i>ashishfrank.career@gmail.com</a>
+          <a href="mailto:ashishfrank.career@gmail.com" target='_blank' className="footer__link"><i className="ri-mail-line"></i>ashishfrank.career@gmail.com</a>
 
         </div>
       </div>

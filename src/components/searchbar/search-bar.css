@@ -11,11 +11,16 @@
     border: 0.01rem solid rgba( 255, 255, 255, 0.18 );
     padding: var(--s);
     padding-right: var(--xxxl);
+    transition: 0.2s;
 }
 
 .searchbar__input::placeholder {
     opacity: 0.3;
     color: var(--color);
+}
+
+.searchbar__input:focus {
+    filter: brightness(1.22);
 }
 
 .searchbar__button {

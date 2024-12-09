@@ -1,4 +1,6 @@
 import './App.css'
+
+// wraps compnents to fade in & out
 import FadeInOut from './utils/FadeInOut'
 
 // sections

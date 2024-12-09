@@ -7,6 +7,7 @@ export const initialState = {
     unit: 'celsius',
 }
 
+// reducer function
 const appReducer = (state, action) => {
     const { type, payload } = action
     switch (type) {
@@ -16,20 +17,13 @@ const appReducer = (state, action) => {
                 query: payload
             }
         case 'SET_WEATHER':
-            const { name, main, timezone, visibility, weather, wind, aqi, time, forecast, uvIndex } = payload
+            const { name, forecast, ...rest } = payload
             return {
                 ...state,
                 forecast,
                 current: {
                     place: name,
-                    main,
-                    timezone,
-                    visibility,
-                    weather,
-                    wind,
-                    aqi,
-                    time,
-                    uvIndex
+                    ...rest
                 }
             }    
         case 'RESET_WEATHER':

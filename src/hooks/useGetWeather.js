@@ -6,8 +6,10 @@ const useGetWeather = () => {
 
     const getWeather = async (text) => {
 
+        // to ot perform search if previous search query is as same as the current one
         if (query.trim().toLowerCase() === text.trim().toLowerCase()) return
 
+        // resetting state values
         setLoading(true)
         setQuery(text)
         setNotFound(false)
@@ -42,6 +44,7 @@ const useGetWeather = () => {
                 forecast
             }
             
+            // updating state with weather data
             setWeather(weather)
             
         } catch (error) {
