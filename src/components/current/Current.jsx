@@ -1,7 +1,7 @@
 import './current.css'
 import celsiusToFahrenheit from '../../utils/switchUnit'
 import useGetCurrent from '../../hooks/useGetCurrent'
-import Pollutants from './pollutants'
+import Pollutants from './Pollutants'
 
 // renders current weather deatils
 const Current = () => {
