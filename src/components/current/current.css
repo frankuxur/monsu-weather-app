@@ -4,6 +4,7 @@
     justify-content: flex-end;
     gap: var(--l);
     flex-wrap: wrap;
+    z-index: 1;
 }
 
 .current > * {
@@ -167,7 +168,9 @@
 
 .current__stats span span,
 .current__date span,
-.current__hour span {
+.current__hour span,
+.component__value,
+.components__title span {
     font-family: var(--grotesk);
 }
 
@@ -175,6 +178,90 @@
 .current__week,
 .current__bar {
     user-select: none;
+}
+
+.current__air-quality {
+    position: relative;
+}
+
+/* air pollutants */
+.current__air-quality:hover .pollutants,
+.pollutants:hover {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(-100%);
+}
+
+.pollutants {
+    width: 14rem;
+    background-color: var(--bg-1);
+    box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
+    border: 0.01rem solid rgba(255, 255, 255, 0.18);
+    padding: var(--m);
+    border-radius: var(--xl);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-90%);
+    font-size: var(--font-xs);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s 0.1s, transform 0.3s 0.1s;
+    overflow: hidden;
+}
+
+.pollutant::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    aspect-ratio: 1;
+    background-color: coral;
+    border-radius: 50%;
+    filter: blur(4rem);
+    z-index: -1;
+}
+
+/* .pollutant::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 10rem;
+    aspect-ratio: 1;
+    background-color: coral;
+    border-radius: 50%;
+    filter: blur(4rem);
+    z-index: -1;
+} */
+
+.pollutants__title {
+    margin-bottom: var(--xs);
+}
+
+.pollutants__list {
+    display: flex;
+    flex-direction: column; 
+    gap: var(--xxxs);
+    font-weight: var(--light);
+    opacity: 0.8;
+}
+
+.pollutant {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: var(--xxxs);
+}
+
+.pollutant:not(:last-child) {
+    border-bottom: 0.01rem solid rgba(255, 255, 255, 0.085);
+}
+
+body[data-theme="light"] .pollutant:not(:last-child) {
+    border-bottom: 0.01rem solid rgba(33, 33, 33, 0.107);
 }
 
 

@@ -1,11 +1,12 @@
 import './current.css'
 import celsiusToFahrenheit from '../../utils/switchUnit'
 import useGetCurrent from '../../hooks/useGetCurrent'
+import Pollutants from './pollutants'
 
 // renders current weather deatils
 const Current = () => {
   
-  const { place, description, weatherIcon, unit, temp, month, day, time, meridian, dayIndex, humidityPercentage, humidity, speed, deg, aqiText, visibility, uvIndex, pressure, daysInitials } = useGetCurrent()
+  const { place, description, weatherIcon, unit, temp, month, day, time, meridian, dayIndex, humidityPercentage, humidity, speed, deg, aqiText, pollutants, visibility, uvIndex, pressure, daysInitials } = useGetCurrent()
 
   return (
     <div className="current">
@@ -59,6 +60,9 @@ const Current = () => {
           <div className="current__label">Air Quality</div>
           <i className="ri-loader-line icon"></i>
           <span>{aqiText}</span>
+
+          {/* air pollutants */}
+          <Pollutants pollutants={pollutants} />
         </div>
 
         <div className="current__visibility">

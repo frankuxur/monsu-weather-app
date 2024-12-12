@@ -28,7 +28,9 @@ const useGetWeather = () => {
             response = await fetch(query)
             data = await response.json()
             const aqi = data.list[0].main.aqi
+            const components = data.list[0].components
             weather.aqi = aqi
+            weather.components = components
 
             // forecast, time & uv index
             query = `${import.meta.env.VITE_FORECAST_API}?latitude=${lat}&longitude=${lon}&current=is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max&timezone=auto`

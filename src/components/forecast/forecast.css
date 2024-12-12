@@ -1,7 +1,6 @@
 .forecast {
     padding: var(--m);
     flex: 3;
-    /* height: 15.625rem; */
     background: rgba( 255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
     backdrop-filter: blur(4px);

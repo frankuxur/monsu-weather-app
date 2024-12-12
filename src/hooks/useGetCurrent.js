@@ -7,9 +7,10 @@ const useGetCurrent = () => {
   
     const [humidityPercentage, setHumidityPercentage] = useState(10)
     const { current, unit } = useContext(AppContext)
-    const { place, main: { temp, pressure, humidity }, visibility, weather: [ { description, icon } ], wind: { speed, deg }, aqi, time: { time }, uvIndex } = current || {}
+    const { place, main: { temp, pressure, humidity }, visibility, weather: [ { description, icon } ], wind: { speed, deg }, aqi, components, time: { time }, uvIndex } = current || {}
   
     const { month, day, time: t, meridian, dayIndex } = parseDateTime(time)
+
     let aqiText = ''
     switch (aqi) {
       case 1:
@@ -33,6 +34,10 @@ const useGetCurrent = () => {
     }
 
     const weatherIcon = icons[icon]
+
+    const daysInitials = ['s', 'm', 't', 'w', 't', 'f', 's']
+
+    const newComponents = Object.entries(components)
   
     // setting humidity% at 0.5s after component render to delay animation effect
     useEffect(() => {
@@ -41,9 +46,7 @@ const useGetCurrent = () => {
       }, 500);
     }, [current]) 
 
-    const daysInitials = ['s', 'm', 't', 'w', 't', 'f', 's']
-
-    return { place, description, weatherIcon, unit, temp, month, day, time: t, meridian, dayIndex, humidityPercentage, humidity, speed, deg, aqiText, visibility, uvIndex, pressure, daysInitials }
+    return { place, description, weatherIcon, unit, temp, month, day, time: t, meridian, dayIndex, humidityPercentage, humidity, speed, deg, aqiText, pollutants: newComponents, visibility, uvIndex, pressure, daysInitials }
 
 }
 

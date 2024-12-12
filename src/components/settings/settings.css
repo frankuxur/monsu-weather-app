@@ -17,7 +17,7 @@
     gap: var(--s);
     transition: 0.3s 0.1s ease-out;
     font-family: var(--manrope);
-    z-index: 1;
+    z-index: 2;
 }
 
 .settings__open {
