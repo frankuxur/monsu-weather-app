@@ -17,7 +17,7 @@ const Main = () => {
         <MainHeader />
 
         {/* settings button & options */}
-        <Settings />
+        <Settings showSearch={showSearch} setShowSearch={setShowSearch} />
 
         {showSearch && (
           <FadeInOut show={true} duration={1000}>

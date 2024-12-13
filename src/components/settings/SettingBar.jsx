@@ -1,49 +1,90 @@
-const SettingBar = ({ showSettings, setShowSettings, handleSetTheme, theme, unit, setUnit }) => {
+const SettingBar = ({ showSettings, setShowSettings, handleSetTheme, theme, unit, setUnit, showSearch, setShowSearch }) => {
   return (
     <div className={`settings ${showSettings ? 'active' : ''}`}>
+
         <header className="settings__header">
-            <div className='settings__title'>Settings</div>
+            <div className='settings__title'>Navigate</div>
 
             <button onClick={() => setShowSettings(false)} className="settings__close">
                 <i className="ri-close-line icon"></i>            
             </button>
         </header>
-
-        {/* to switch between themes (dark/light) */}
+        
         <div className="settings__options">
-            <div className="themes">
-                <div>Theme</div>
+            <button 
+                onClick={() => setShowSearch(false)}
+                className={`settings__button ${!showSearch ? 'active' : ''}`}
+            >
+                <div className="dot"></div>
+                <i className="ri-home-line icon"></i>
 
-                <div className="line"></div>
+                <div>Home</div>
+            </button>
 
-                <button className={`settings__button theme light ${theme === 'light' ? 'active' : ''}`} onClick={() => handleSetTheme('light')}>
-                    <div className="dot"></div>
-                    <i className="ri-sun-line icon"></i>
-                </button>
+            <button 
+                onClick={() => setShowSearch(true)}
+                className={`settings__button ${showSearch ? 'active' : ''}`}
+            >
+                <div className="dot"></div>
+                <i className="ri-search-line icon"></i>
 
-                <button className={`settings__button theme dark ${theme === 'dark' ? 'active' : ''}`} onClick={() => handleSetTheme('dark')}>
-                    <div className="dot"></div>
-                    <i className="ri-moon-line icon"></i>
-                </button>
-            </div>
+                <div>Search</div>
+            </button>
+        </div>        
 
-            {/* to switch between units (°C/°F) */}
-            <div className="units">
-                <div>Units</div>
+        <header className="settings__header">
+            <div className='settings__title'>Unit</div>
+        </header>
+        
+        <div className="settings__options">
+            <button 
+                onClick={() => setUnit('celsius')} 
+                className={`settings__button unit ${unit === 'celsius' ? 'active' : ''}`}
+            >
+                <div className="dot"></div>
+                <i className="ri-celsius-line icon"></i>
 
-                <div className="line"></div>
+                <div>Celsius</div>
+            </button>
 
-                <button onClick={() => setUnit('celsius')} className={`settings__button unit ${unit === 'celsius' ? 'active' : ''}`}>
-                    <div className="dot"></div>
-                    <i className="ri-celsius-line icon"></i>
-                </button>
+            <button 
+                onClick={() => setUnit('fahrenheit')} 
+                className={`settings__button unit ${unit === 'fahrenheit' ? 'active' : ''}`}
+            >
+                <div className="dot"></div>
+                <i className="ri-fahrenheit-line icon"></i>
 
-                <button onClick={() => setUnit('fahrenheit')} className={`settings__button unit ${unit === 'fahrenheit' ? 'active' : ''}`}>
-                    <div className="dot"></div>
-                    <i className="ri-fahrenheit-line icon"></i>
-                </button>
-            </div>
+                <div>Fahrenheit</div>
+            </button>
+        </div>        
+
+        <header className="settings__header">
+            <div className='settings__title'>Theme</div>
+        </header>
+        
+        <div className="settings__options">
+            <button 
+                className={`settings__button theme dark ${theme === 'dark' ? 'active' : ''}`}
+                onClick={() => handleSetTheme('dark')}    
+            >
+                <div className="dot"></div>
+                <i className="ri-moon-line icon"></i>
+
+                <div>Dark</div>
+            </button>
+
+            <button 
+                className={`settings__button theme light ${theme === 'light' ? 'active' : ''}`}
+                onClick={() => handleSetTheme('light')}        
+            >
+                <div className="dot"></div>
+                <i className="ri-sun-line icon"></i>
+
+                <div>Light</div>
+            </button>
         </div>
+
+        
     </div>
   )
 }

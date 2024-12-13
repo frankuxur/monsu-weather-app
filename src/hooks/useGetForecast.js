@@ -2,7 +2,8 @@ import { useContext } from "react"
 import { AppContext } from "../state/context/AppContext"
 import icons from '../assets/json/icons.json'
 
-const useSetForecastData = () => {
+// custom hook: retrieves Weather Forecast stored in state handled by userReducer, shared via context & organizes them in a presentable format
+const useGetForecast = () => {
     
     const { forecast, unit } = useContext(AppContext)
 
@@ -16,7 +17,9 @@ const useSetForecastData = () => {
         const dayNumber = new Date(t).getDate()
         const monthName = months[new Date(t).getMonth()]
         return {
-        dayName, dayNumber, monthName
+            dayName, 
+            dayNumber, 
+            monthName
         }
     })
     newTime.shift()
@@ -24,4 +27,4 @@ const useSetForecastData = () => {
     return { temps, tempsMin: temperature_2m_min, time: newTime, weatherCode: weather_code, icons, unit }
 }
 
-export default useSetForecastData
+export default useGetForecast

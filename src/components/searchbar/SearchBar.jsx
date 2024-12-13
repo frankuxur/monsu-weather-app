@@ -31,7 +31,7 @@ const SearchBar = () => {
   }, [])
 
   return (
-    <form onSubmit={handleSubmit} className="searchbar">
+    <form onSubmit={handleSubmit} className="searchbar fade-in">
       <input 
         type="text" 
         placeholder='type a location'

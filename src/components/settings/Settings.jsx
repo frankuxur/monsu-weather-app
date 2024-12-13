@@ -4,7 +4,7 @@ import { AppContext } from '../../state/context/AppContext'
 import SettingButton from './SettingButton'
 import SettingBar from './SettingBar'
 
-const Settings = () => {
+const Settings = ({ showSearch, setShowSearch }) => {
     
   const [showSettings, setShowSettings] = useState(false)  
   const { unit, setUnit } = useContext(AppContext)  
@@ -18,18 +18,23 @@ const Settings = () => {
 
   return (
     <>
-        {/* setting button */}
-        <SettingButton showSettings={showSettings} setShowSettings={setShowSettings} />
+      {/* setting button */}
+      <SettingButton 
+        showSettings={showSettings} 
+        setShowSettings={setShowSettings} 
+      />
 
-        {/* setting bar */}
-        <SettingBar 
-            showSettings={showSettings} 
-            setShowSettings={setShowSettings} 
-            handleSetTheme={handleSetTheme} 
-            theme={theme}  
-            unit={unit}  
-            setUnit={setUnit}  
-        />
+      {/* setting bar */}
+      <SettingBar 
+        showSettings={showSettings} 
+        setShowSettings={setShowSettings} 
+        handleSetTheme={handleSetTheme} 
+        theme={theme}  
+        unit={unit}  
+        setUnit={setUnit}  
+        showSearch={showSearch}
+        setShowSearch={setShowSearch}
+      />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { AppContext } from "../state/context/AppContext"
 
+// custom hook: fetches weather and forecast data for a given location
 const useGetWeather = () => {
     const { setWeather, setLoading, setNotFound, resetWeather, query, setQuery } = useContext(AppContext)
 

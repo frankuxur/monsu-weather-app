@@ -3,11 +3,27 @@ import Current from '../../components/current/Current'
 import Forecast from '../../components/forecast/Forecast'
 import { useContext } from 'react'
 import { AppContext } from '../../state/context/AppContext'
-import FadeInOut from '../../utils/FadeInOut'
+
+// gsap
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 const Weather = ({ showSearch }) => {
 
   const { current, forecast, loading, notFound } = useContext(AppContext)
+  
+  // gsap stagger
+  useGSAP(() => {
+    if (Object.keys(current).length) {
+      gsap.from('.weather', {
+        opacity: 0,
+        y: 4,
+        duration: 1,
+        delay: 0.1,
+        ease: 'power2.inOut',
+      })
+    }
+  }, [current])
 
   // error handle
   if (notFound.value) {
@@ -36,16 +52,18 @@ const Weather = ({ showSearch }) => {
 
   // display weather data when it is fetched and stored in state
   return (
-    <FadeInOut show={true} duration={1000}>
-      <div className="weather">
-        <div className="weather__content">
-          {/* 1 - today's weather */}
-          <Current />
-          {/* 2 - forecast */}
-          <Forecast />
+    <>
+      {showSearch ? (
+        <div className="weather">
+          <div className="weather__content">
+            {/* 1 - today's weather */}
+            <Current />
+            {/* 2 - forecast */}
+            <Forecast />
+          </div>
         </div>
-      </div>
-    </FadeInOut>
+      ) : null}
+    </>
   )
 }
 

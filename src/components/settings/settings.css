@@ -5,7 +5,7 @@
     transform: translate(-50%, 20%);
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px);
     border: 0.01rem solid rgba(218, 166, 166, 0.18);
     opacity: 0;
     pointer-events: none;
@@ -37,7 +37,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.3s 0.1s ease-out, filter 0.2s ease-out;
-    z-index: 1;
+    z-index: 2;
 }
 
 .settings.active,
@@ -60,6 +60,11 @@
     justify-content: space-between;
 }
 
+.settings__header:not(:nth-last-of-type(3)) {
+    padding-top: var(--xxxs);
+    border-top: 0.01rem solid rgba(166, 149, 149, 0.25);
+}
+
 .settings__close {
     display: flex;
     font-size: var(--font-xs);
@@ -76,24 +81,19 @@
 
 .settings__options {
     display: flex;
-    gap: var(--xl);
-}
-
-.themes,
-.units {
-    display: flex;
-    align-items: center;
-    gap: var(--xxxs);
-}
-
-.settings .line {
-    width: 1rem;
-    height: 0.01rem;
-    border-top: 0.01rem dashed var(--color);
-    opacity: 0.4;
+    gap: var(--l);
+    min-width: 16rem;
 }
 
 .settings__button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--xxxs);
+    position: relative;
+}
+
+.settings__button .icon {
     width: 1.8rem;
     aspect-ratio: 1;
     border-radius: var(--xs);
@@ -105,14 +105,13 @@
     background-color: var(--color);
     border: 0.1rem solid rgba(255, 255, 255, 0.18 );
     box-shadow: 0 8px 32px 0 rgba(93, 94, 99, 0.37);
-    position: relative;
 }
 
 .settings__button .dot {
     position: absolute;
-    bottom: -14%;
-    left: 50%;
-    transform: translate(-50%, 100%);
+    top: -4%;
+    left: 0%;
+    transform: translate(-50%, -50%);
     width: 0.3rem;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -143,6 +142,5 @@
         border-top: 0.01rem solid var(--color);
         flex: 1;
     }
-    
     
 }

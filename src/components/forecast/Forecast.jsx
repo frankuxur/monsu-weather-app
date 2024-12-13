@@ -1,5 +1,5 @@
 import './forecast.css'
-import useSetForecastData from '../../hooks/useSetForecasetData'
+import useGetForecast from '../../hooks/useGetForecast'
 import Chart from './Chart'
 import ForecastInfo from './ForecastInfo'
 import ForecastDays from './ForecastDays'
@@ -7,7 +7,7 @@ import ForecastDays from './ForecastDays'
 // renders weather forcast for the next 6 days
 const Forecast = () => {
 
-  const { temps, tempsMin, time, weatherCode, icons, unit } = useSetForecastData()
+  const { temps, tempsMin, time, weatherCode, icons, unit } = useGetForecast()
 
   return (
     <div className="forecast">
